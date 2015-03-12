@@ -1,0 +1,42 @@
+# atomdeb
+
+atobdeb manages your atom installation on Debian x64 based distributions.
+
+## Installation
+
+go get github.com/otm/atomdeb
+
+## Build/Install
+
+go install github.com/otm/atomdeb
+
+## Usage
+
+atomdeb [-h | --help] [action]
+
+### Actions
+
+Actions can be one of the following:
+
+*	list - list available atom versions
+* install - install <version> or latest
+
+## Examples
+
+### List Available Versions
+
+```
+atomdeb list
+```
+
+### Install Latest Version
+
+```
+atomdeb install latest
+```
+
+### Install specific version
+
+```
+atomdeb install 0.185.0
+```
