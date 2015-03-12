@@ -9,7 +9,7 @@ import (
 	"github.com/dustin/go-humanize"
 )
 
-type passThru struct {
+type meteredReader struct {
 	io.Reader
 	total    int64 // Total # of bytes transferred
 	length   int64
@@ -21,7 +21,7 @@ type passThru struct {
 // Read 'overrides' the underlying io.Reader's Read method.
 // This is the one that will be called by io.Copy(). We simply
 // use it to keep track of byte counts and then forward the call.
-func (pt *passThru) Read(p []byte) (int, error) {
+func (pt *meteredReader) Read(p []byte) (int, error) {
 	if pt.start == *new(time.Time) {
 		pt.start = time.Now()
 	}

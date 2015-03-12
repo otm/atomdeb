@@ -87,7 +87,7 @@ func (a *asset) download(name string) error {
 
 	defer resp.Body.Close()
 
-	metered := &passThru{Reader: resp.Body, length: resp.ContentLength, name: a.Name}
+	metered := &meteredReader{Reader: resp.Body, length: resp.ContentLength, name: a.Name}
 
 	fmt.Printf("\rGet %v 0B/%v", a.Name, humanize.Bytes(uint64(resp.ContentLength)))
 	_, err = io.Copy(out, metered)
