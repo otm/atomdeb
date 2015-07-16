@@ -11,13 +11,6 @@ import (
 	"github.com/dustin/go-humanize"
 )
 
-/*
-	list releases
-	find release
-	find asset
-	download asset
-*/
-
 type releases []*release
 
 func (r *releases) get(version string) (*release, error) {
